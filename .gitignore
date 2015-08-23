@@ -3,4 +3,21 @@ bower_components/
 *.log
 
 build/
-dist/
+
+# Windows folder file
+.folder
+
+# NodeJS
+gulp/node_modules/
+
+#Jetbrains Idea
+.idea/
+out/
+*.iml
+*.ipr
+*.iws
+*.ids
+
+# backup files
+*.*~
+*.bak
