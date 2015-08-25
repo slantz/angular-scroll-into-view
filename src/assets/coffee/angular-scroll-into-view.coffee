@@ -14,12 +14,14 @@ angular.module('angular.scroll.into.view').directive 'scrollIntoView',
           imagesLoaded = 0
 
       scope.$on "ngRepeatFinished", ->
-        allImages = +attrs.scrollIntoView
+        $timeout ->
+          allImages = document.querySelectorAll("[txo-scroll-into-view]").length
+        , 0, false
 
       scope.$on 'ngSrcImageLoaded', (a,b,c)->
-        if c is "scroll-into-view-ele" and +allImages isnt 0
-          if ++imagesLoaded is +allImages
-            $timeout ->
+        $timeout ->
+          if c is "txo-scroll-into-view" and +allImages isnt 0
+            if ++imagesLoaded is +allImages
               scrollToElementView()
-            , 0 , false
+        , 0 , false
       return
