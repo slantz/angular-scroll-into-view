@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var coffee = require('gulp-coffee');
+var concat = require('gulp-concat');
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
 var ngAnnotate  = require('gulp-ng-annotate');
@@ -29,8 +30,9 @@ function getDate(args) {
 
 gulp.task('js-dev-app', function() {
   return gulp.src([
-    '../src/assets/coffee/'+pkg.name+'.coffee',
+    '../src/assets/coffee/*.coffee',
   ])
+  .pipe(concat(pkg.name+'.js'))
   .pipe(coffee())
   .pipe(ngAnnotate({
     sourcemap: true
