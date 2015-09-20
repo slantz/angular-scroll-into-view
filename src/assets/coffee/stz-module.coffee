@@ -1,0 +1,1 @@
+stzScrollIntoView = angular.module('stz.scroll.into.view',[])

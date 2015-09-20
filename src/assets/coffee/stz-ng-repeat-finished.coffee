@@ -1,7 +1,12 @@
-angular.module('stz.scroll.into.view',[]).directive 'stzLastRepeat',
+stzScrollIntoView.directive 'stzLastRepeat',
   ->
     restrict: 'A'
-    link: (scope, ele, attrs) ->
+    require: '^?stzScrollIntoView'
+    link: (scope, ele, attrs, stzScrollIntoViewCtrl) ->
       if scope.$last
-        scope.$emit 'stzNgRepeatFinished', ele, attrs
+        if stzScrollIntoViewCtrl isnt null
+          if typeof stzScrollIntoViewCtrl.onStzNgRepeatFinished is 'function'
+            stzScrollIntoViewCtrl.onStzNgRepeatFinished ele, attrs
+        else
+          scope.$emit 'stzNgRepeatFinished', ele, attrs
       return

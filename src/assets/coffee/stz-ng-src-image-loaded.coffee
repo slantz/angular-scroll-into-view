@@ -1,12 +1,19 @@
-angular.module('stz.scroll.into.view',[]).directive 'stzImageLoad',
+stzScrollIntoView.directive 'stzImageLoad',
   ($timeout) ->
     restrict: 'A'
-    link: (scope, ele, attrs) ->
+    require: '^?stzScrollIntoView'
+    link: (scope, ele, attrs, stzScrollIntoViewCtrl) ->
       loadingClasses = attrs.stzImageLoad
       emitLoaded = ->
-        $timeout ->
-          scope.$emit 'stzNgSrcImageLoaded', ele, loadingClasses
-        , 0
+        if stzScrollIntoViewCtrl isnt null
+          if typeof stzScrollIntoViewCtrl.onStzNgSrcImageLoaded is 'function'
+            $timeout ->
+              stzScrollIntoViewCtrl.onStzNgSrcImageLoaded ele, loadingClasses
+            , 0
+        else
+          $timeout ->
+            scope.$emit 'stzNgSrcImageLoaded', ele, loadingClasses
+          , 0
       init = (unbind)->
         if unbind
           ele.unbind 'load'

@@ -30,6 +30,7 @@ function getDate(args) {
 
 gulp.task('js-dev-app', function() {
   return gulp.src([
+    '../src/assets/coffee/stz-module.coffee',
     '../src/assets/coffee/*.coffee',
   ])
   .pipe(concat(pkg.name+'.js'))
