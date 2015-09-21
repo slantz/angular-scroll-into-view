@@ -1,6 +1,6 @@
 {
   "name": "stz-scroll-into-view",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "dist/stz-scroll-into-view.min.js",
   "ignore": [
     "src",
