@@ -1,0 +1,18 @@
+{
+  "name": "stz-scroll-into-view",
+  "version": "1.0.2",
+  "main": "dist/stz-scroll-into-view.min.js",
+  "ignore": [
+    "src",
+    "gulp",
+    ".bowerrc",
+    ".gitignore",
+    "package.json",
+    "bower.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "angular": "~1.2.17"
+  },
+}
