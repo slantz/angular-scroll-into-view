@@ -120,7 +120,7 @@ stzScrollIntoView.directive 'stzScrollIntoView',
         SETTINGS.SCROLL_TO_ELEMENT = document.querySelector "[stz-s-i-v-ele='#{if SETTINGS.IS_DEFAULT_WATCHER_PARAM then 'true' else SETTINGS.SCOPE.scrollParam}']"
         if SETTINGS.SCROLL_TO_ELEMENT?
           SETTINGS.SCROLL_TO_ELEMENT.scrollIntoView true
-          switch
+          temp = switch
             when typeof SETTINGS.PARENT_ID is 'string'
               document.querySelector(SETTINGS.PARENT_ID).scrollTop = 0
             when typeof SETTINGS.PARENT_ID is 'object'
