@@ -1,6 +1,6 @@
 {
   "name": "stz-scroll-into-view",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Angular scroll to an element inside some view when ng-repeat is rendered or all images are loaded or both cases or scroll to static attribute",
   "main": "dist/stz-scroll-into-view.min.js",
   "scripts": {},
