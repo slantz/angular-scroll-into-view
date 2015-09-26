@@ -120,7 +120,16 @@ stzScrollIntoView.directive 'stzScrollIntoView',
         SETTINGS.SCROLL_TO_ELEMENT = document.querySelector "[stz-s-i-v-ele='#{if SETTINGS.IS_DEFAULT_WATCHER_PARAM then 'true' else SETTINGS.SCOPE.scrollParam}']"
         if SETTINGS.SCROLL_TO_ELEMENT?
           SETTINGS.SCROLL_TO_ELEMENT.scrollIntoView true
-          document.getElementById(SETTINGS.PARENT_ID).scrollTop = 0
+          switch
+            when typeof SETTINGS.PARENT_ID is 'string'
+              document.querySelector(SETTINGS.PARENT_ID).scrollTop = 0
+            when typeof SETTINGS.PARENT_ID is 'object'
+              if typeof SETTINGS.PARENT_ID.scrollTop is 'number'
+                SETTINGS.PARENT_ID.scrollTop = 0
+              else
+                document.body.scrollTop = 0
+            else
+              document.body.scrollTop = 0
           API.imagesLoaded = 0
 
     restrict: 'A'
@@ -136,7 +145,7 @@ stzScrollIntoView.directive 'stzScrollIntoView',
       SETTINGS.IS_DEFAULT_WATCHER_PARAM = if typeof attrs.stzScrollIntoView is 'string' and attrs.stzScrollIntoView isnt '' then false else true
       SETTINGS.IS_IMAGES = if typeof attrs.stzSIVImg isnt 'undefined' then true else false
       SETTINGS.IS_NG_REPEAT = if typeof attrs.stzSIVNgRepeat isnt 'undefined' then true else false
-      SETTINGS.PARENT_ID = attrs.stzSIVParentId or "content"
+      SETTINGS.PARENT_ID = attrs.stzSIVParentId or ele[0].parentNode
       SETTINGS.SCOPE = scope
 
       API.init()
