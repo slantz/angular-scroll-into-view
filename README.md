@@ -3,7 +3,7 @@
 [![stz-scroll-into-view on NPM](https://img.shields.io/npm/v/stz-scroll-into-view.svg)](https://www.npmjs.com/package/stz-scroll-into-view)
 [![stz-scroll-into-view on Bower](https://img.shields.io/bower/v/stz-scroll-into-view.svg)](http://bower.io/search/?q=stz-scroll-into-view)
 
-> This directive allows to scroll to a custom element from some Node list array inside a parent container.
+> This directive allows to scroll to a custom Node list array element inside a parent container.
 
 > Can be used along with stz-image-load directive if all of the child elements are images or contain images to scroll to a particular element only when all images are loaded or with stz-last-repeat directive to consider the ng-repeat presence and scroll after ng-repeat is rendered. Or can make use of both ng-repeat and images combined.
 
